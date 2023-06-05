@@ -13,10 +13,11 @@ class MainActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val button:Button = findViewById(R.id.button1)
+        val fragment = RightFragment()
         button.setOnClickListener{
-            replaceFragment(AnotherRightFragment())
+            replaceFragment(fragment)
         }
-        replaceFragment(RightFragment())
+//        replaceFragment(RightFragment())
     }
 
     private fun replaceFragment(fragment: Fragment){

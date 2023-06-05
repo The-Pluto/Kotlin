@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/firstFrag"
+        android:name="com.example.wechatactivity.Fragment_first"
+        app:layout_constraintLeft_toRightOf="@+id/buttunBox"
+        app:layout_constraintRight_toLeftOf="@id/rightLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintHorizontal_weight="1"
+        tools:ignore="MissingConstraints" />
+
+    <FrameLayout
+        android:id="@+id/rightLayout"
+        app:layout_constraintLeft_toRightOf="@+id/firstFrag"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintHorizontal_weight="1"
+        />
+
+    <LinearLayout
+        android:id="@+id/buttunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        android:minWidth="100dp"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <Button
+            android:id="@+id/button_main"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:text="微信" />
+        <Button
+            android:id="@+id/button2_main"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:text="通讯录" />
+        <Button
+            android:id="@+id/button3_main"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:text="发现" />
+        <Button
+            android:id="@+id/button4_main"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:text="我"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
