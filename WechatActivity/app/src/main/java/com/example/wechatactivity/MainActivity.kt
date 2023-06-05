@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 class MainActivity:AppCompatActivity() {
+
     private val fragment1 = Fragment_first()
     private val fragment2 = Fragment_second()
     private val fragment3 = Fragment_third()
     private val fragment4 = Fragment_forth()
-
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +43,9 @@ class MainActivity:AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.firstFrag,fragment)
-        transaction.addToBackStack(null)
         transaction.commit()
     }
+
+
 
 }

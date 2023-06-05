@@ -17,6 +17,8 @@ class Fragment_second: Fragment()  {
 
     private var root:View ?= null
 
+    val fragment = ChatFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -31,6 +33,7 @@ class Fragment_second: Fragment()  {
         }
         initRecyclerview()
         initPeople()
+        replaceRightFragment(fragment)
         return root
     }
 
@@ -60,4 +63,11 @@ class Fragment_second: Fragment()  {
             LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false);
     }
 
+    private fun replaceRightFragment(fragment: Fragment){
+        val fragmentManager = getFragmentManager()
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.rightLayout,fragment)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
+    }
 }

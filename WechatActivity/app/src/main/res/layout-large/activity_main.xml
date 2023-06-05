@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <View
+        android:background="#000"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        app:layout_constraintRight_toLeftOf="@+id/firstFrag"
+        tools:ignore="MissingConstraints">
+    </View>
     <FrameLayout
         android:id="@+id/firstFrag"
         android:name="com.example.wechatactivity.Fragment_first"
@@ -14,7 +21,14 @@
         android:layout_height="match_parent"
         app:layout_constraintHorizontal_weight="1"
         tools:ignore="MissingConstraints" />
-
+    <View
+        android:background="#000"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toRightOf="@+id/firstFrag"
+        app:layout_constraintRight_toLeftOf="@+id/rightLayout"
+        tools:ignore="MissingConstraints">
+    </View>
     <FrameLayout
         android:id="@+id/rightLayout"
         app:layout_constraintLeft_toRightOf="@+id/firstFrag"

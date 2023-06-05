@@ -17,8 +17,11 @@ class Fragment_third: Fragment()  {
 
     private var root:View ?= null
 
+    val fragment = ChatFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        replaceRightFragment(fragment)
     }
 
     override fun onCreateView(
@@ -31,6 +34,7 @@ class Fragment_third: Fragment()  {
         }
         initRecyclerview()
         initPeople()
+
         return root
     }
 
@@ -58,6 +62,14 @@ class Fragment_third: Fragment()  {
         //这步骤必须有，这是选择RecylerView的显示方式
         recyclerview?.layoutManager =
             LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false);
+    }
+
+    private fun replaceRightFragment(fragment: Fragment){
+        val fragmentManager = getFragmentManager()
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.rightLayout,fragment)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
     }
 
 }
