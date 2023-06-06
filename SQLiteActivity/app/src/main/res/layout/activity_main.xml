@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/createDatabase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Database"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/insertData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/createDatabase"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/deleteData"
+        android:text="Insert Data"
+        android:gravity="center"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/deleteData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/createDatabase"
+        app:layout_constraintLeft_toRightOf="@+id/insertData"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Delete Data"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/queryData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/insertData"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/updateData"
+        android:text="Query Data"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/updateData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/insertData"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/queryData"
+        android:text="Update Data"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/updateData"
+        />
+
+    <TextView
+        android:id="@+id/haveDone"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/recycler1"
+        tools:ignore="MissingConstraints"
+        android:text="Done"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/haveDone"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
