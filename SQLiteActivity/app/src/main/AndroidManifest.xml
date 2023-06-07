@@ -37,6 +37,13 @@
             tools:ignore="WrongManifestParent">
         </activity>
 
+        <activity
+            android:name=".DeleteUpdateActivity"
+            android:exported="true"
+            android:label="Insert Data"
+            tools:ignore="WrongManifestParent">
+        </activity>
+
     </application>
 
 </manifest>

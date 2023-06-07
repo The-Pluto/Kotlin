@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class QueryActivity: AppCompatActivity() {
 
-    @SuppressLint("MissingInflatedId", "WrongViewCast", "Range")
+    @SuppressLint("MissingInflatedId", "WrongViewCast", "Range", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.query_activity)
@@ -45,6 +45,9 @@ class QueryActivity: AppCompatActivity() {
         }
 
         button.setOnClickListener{
+            val thing = findViewById<EditText>(R.id.thing).text.toString()
+            val property = findViewById<EditText>(R.id.property2).text.toString()
+
             val dbHelper = MyDatabaseHelper(this,"TODOList.db",2)
             val db = dbHelper.writableDatabase
             val cursor = db.query("TODO",null,null,null,null,null,null)

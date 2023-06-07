@@ -21,9 +21,7 @@ class MainActivity:AppCompatActivity() {
         val dbHelper = MyDatabaseHelper(this,"TODOList.db",2)
         val createDatabase = findViewById<Button>(R.id.createDatabase)
         val insertData = findViewById<Button>(R.id.insertData)
-        val deleteData = findViewById<Button>(R.id.deleteData)
         val queryData = findViewById<Button>(R.id.queryData)
-        val updateData = findViewById<Button>(R.id.updateData)
         createDatabase.setOnClickListener{
             dbHelper.writableDatabase
         }
@@ -31,15 +29,6 @@ class MainActivity:AppCompatActivity() {
             val intent: Intent = Intent(this,InsertDataActivity::class.java)
             startActivity(intent)
         }
-//        updateData.setOnClickListener{
-//            finish()
-//            val intent:Intent = Intent(this,MainActivity::class.java)
-//            startActivity(intent)
-//        }
-//        deleteData.setOnClickListener{
-//            val db = dbHelper.writableDatabase
-//            db.delete("TODO","id > ?", arrayOf("7"))
-//        }
         queryData.setOnClickListener{
             val intent: Intent = Intent(this,QueryActivity::class.java)
             startActivity(intent)
@@ -48,13 +37,13 @@ class MainActivity:AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         val recyclerView: RecyclerView = findViewById(R.id.recycler1)
         recyclerView.layoutManager = layoutManager
-        val adapter = TODOAdapter(todoList_notfinish)
+        val adapter = TODOAdapter(this,todoList_notfinish)
         recyclerView.adapter = adapter
 
         val layoutManager2 = LinearLayoutManager(this)
         val recyclerView2: RecyclerView = findViewById(R.id.recycler2)
         recyclerView2.layoutManager = layoutManager2
-        val adapter2 = TODOAdapter(todoList_finish)
+        val adapter2 = TODOAdapter(this,todoList_finish)
         recyclerView2.adapter = adapter2
 
     }
