@@ -2,10 +2,10 @@ package com.example.sqliteactivity
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,41 +28,21 @@ class MainActivity:AppCompatActivity() {
             dbHelper.writableDatabase
         }
         insertData.setOnClickListener{
-            val db = dbHelper.writableDatabase
-            val values1 = ContentValues().apply {
-                put("complete",false)
-                put("thing","Do Homework")
-                put("time","18:00")
-            }
-            db.insert("TODO",null,values1)
+            val intent: Intent = Intent(this,InsertDataActivity::class.java)
+            startActivity(intent)
         }
-        updateData.setOnClickListener{
-            val db = dbHelper.writableDatabase
-            val values = ContentValues()
-            values.put("complete",true)
-            val cursor = db.query("TODO",null,null,null,null,null,null)
-            db.update("TODO",values,"id = ?", arrayOf("5"))
-        }
-        deleteData.setOnClickListener{
-            val db = dbHelper.writableDatabase
-            db.delete("TODO","id > ?", arrayOf("7"))
-        }
+//        updateData.setOnClickListener{
+//            finish()
+//            val intent:Intent = Intent(this,MainActivity::class.java)
+//            startActivity(intent)
+//        }
+//        deleteData.setOnClickListener{
+//            val db = dbHelper.writableDatabase
+//            db.delete("TODO","id > ?", arrayOf("7"))
+//        }
         queryData.setOnClickListener{
-            val db = dbHelper.writableDatabase
-            val cursor = db.query("TODO",null,null,null,null,null,null)
-            if(cursor.moveToFirst()){
-                do{
-                    val id = cursor.getInt(cursor.getColumnIndex("id"))
-                    val complete = cursor.getShort(cursor.getColumnIndex("complete"))
-                    val thing = cursor.getString(cursor.getColumnIndex("thing"))
-                    val time = cursor.getString(cursor.getColumnIndex("time"))
-                    Log.d("MainActivity","TODO id is $id")
-                    Log.d("MainActivity","TODO complete is $complete")
-                    Log.d("MainActivity","TODO thing is $thing")
-                    Log.d("MainActivity","TODO time is $time")
-                }while(cursor.moveToNext())
-            }
-            cursor.close()
+            val intent: Intent = Intent(this,QueryActivity::class.java)
+            startActivity(intent)
         }
 
         val layoutManager = LinearLayoutManager(this)
