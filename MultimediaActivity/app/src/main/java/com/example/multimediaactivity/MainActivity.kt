@@ -22,7 +22,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.FileProvider
-import androidx.core.graphics.rotationMatrix
 import java.io.File
 
 class MainActivity:AppCompatActivity() {
@@ -98,6 +97,8 @@ class MainActivity:AppCompatActivity() {
             intent.type = "image/*"
             startActivityForResult(intent,fromAlbum)
         }
+
+        initMediaPlayer()
 
         val playSong = findViewById<Button>(R.id.playSong)
         playSong.setOnClickListener{
@@ -195,7 +196,7 @@ class MainActivity:AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initMediaPlayer(){
         val assetManager = assets
-        val fd = assetManager.openFd("有何不可-许嵩.320.mp3")
+        val fd = assetManager.openFd("XvSong1.mp3")
         mediaPlayer.setDataSource(fd.fileDescriptor,fd.startOffset,fd.length)
         mediaPlayer.prepare()
     }
