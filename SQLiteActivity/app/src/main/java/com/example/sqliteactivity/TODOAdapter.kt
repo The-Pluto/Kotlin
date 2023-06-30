@@ -20,7 +20,6 @@ class TODOAdapter(val activity:AppCompatActivity,val todoList:List<TODO>):
         val complete: CheckBox = view.findViewById(R.id.isFinish)
         val thing: TextView = view.findViewById(R.id.things)
         val time:TextView = view.findViewById(R.id.time)
-        val intent = Intent(view.context,MainActivity::class.java)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -50,7 +49,7 @@ class TODOAdapter(val activity:AppCompatActivity,val todoList:List<TODO>):
             val intent = Intent(activity,MainActivity::class.java)
             activity.startActivity(intent)
         }
-        holder.thing.setOnClickListener{
+        holder.time.setOnClickListener{
             Log.d("MainActivity","点击了按钮${todo.id}")
             val intent = Intent(activity,DeleteUpdateActivity::class.java)
 

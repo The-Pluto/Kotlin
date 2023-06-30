@@ -19,7 +19,7 @@ class UpdateDeleteActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.delete_update_activity)
-        val dbHelper = MyDatabaseHelper(this, "TODOList.db", 2)
+        val dbHelper = MyDatabaseHelper(this, "AccList.db", 2)
         val delete = findViewById<Button>(R.id.delete)
         val update = findViewById<Button>(R.id.update)
 
@@ -34,8 +34,8 @@ class UpdateDeleteActivity:AppCompatActivity() {
         val imageId = intent.getStringExtra("imageId")
         val judge = intent.getStringExtra("judge")
 
-        edittext1.replace(0,edittext1.length,money)
-        edittext2.replace(0,edittext2.length,thing)
+        edittext1.replace(0,edittext1.length,"123")
+        edittext2.replace(0,edittext2.length,"thing")
         if (type != null) {
             typeselect.check(type.toInt())
         }

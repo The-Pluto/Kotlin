@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/type"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         app:layout_constraintStart_toEndOf="@+id/typeImage"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/things"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/typeImage"
         tools:ignore="MissingConstraints" />
@@ -32,7 +32,7 @@
     <TextView
         android:id="@+id/money"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />

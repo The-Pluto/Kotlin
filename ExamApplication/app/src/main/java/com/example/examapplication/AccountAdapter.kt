@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.NonDisposableHandle.parent
 import java.io.File
 
 class AccountAdapter(val activity:AppCompatActivity,val accountList:List<Account>):
@@ -33,11 +34,8 @@ class AccountAdapter(val activity:AppCompatActivity,val accountList:List<Account
         holder.type.text = account.type
         holder.thing.text = account.things
         holder.money.text = account.money.toString()
-        Toast.makeText(activity, "Here is holder", Toast.LENGTH_SHORT).show()
-        holder.thing.setOnClickListener{
-            val position = holder.absoluteAdapterPosition
-            val account = accountList[position]
 
+        holder.thing.setOnClickListener{
             Log.d("MainActivity","点击了按钮${account.id}")
             val intent = Intent(activity,UpdateDeleteActivity::class.java)
 
